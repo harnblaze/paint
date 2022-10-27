@@ -1,6 +1,6 @@
 import Colors from "./Colors.js";
 import Tools from "./Tools.js";
-import { createElement } from "./utils.js";
+import { createElement } from "../common/utils.js";
 
 export default class ControlPanel {
   #panel;

@@ -1,5 +1,5 @@
-import { createElement } from "./utils.js";
-import { COLORS } from "./constants.js";
+import { createElement } from "../common/utils.js";
+import { COLORS } from "../common/constants.js";
 
 export default class Colors {
   #colorIndex;
@@ -23,6 +23,7 @@ export default class Colors {
   };
 
   #render = () => {
+    console.log(this.#colorIndex);
     this.#panel.innerHTML = "Цвет";
     this.#colorButtons = this.#colors.map((color, i) => {
       const style = `color-button ${

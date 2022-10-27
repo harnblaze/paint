@@ -1,9 +1,9 @@
-import { createElement } from "./utils.js";
+import { createElement } from "../common/utils.js";
 import {
   MAX_BRUSH_WIDTH,
   MIN_BRUSH_WIDTH,
   STEP_BRUSH_WIDTH,
-} from "./constants.js";
+} from "../common/constants.js";
 
 export default class Tools {
   #brushWidth;

@@ -2,10 +2,9 @@ import ControlPanel from "./ControlPanel.js";
 import Canvas from "./Canvas.js";
 
 import {
-  COLORS,
   INITIAL_BRUSH_WIDTH,
   INITIAL_INDEX_COLOR,
-} from "./constants.js";
+} from "../common/constants.js";
 
 export default class App {
   #canvas;
@@ -35,6 +34,7 @@ export default class App {
     this.#drawLine();
   };
   #drawLine = () => {
-    this.#canvas.drawLine(COLORS[this.#colorIndex], this.#brushSize);
+    console.log(this.#colorIndex);
+    this.#canvas.drawLine(this.#colorIndex, this.#brushSize);
   };
 }

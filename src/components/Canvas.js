@@ -1,5 +1,5 @@
-import { createElement } from "./utils.js";
-import { CANVAS_HEIGHT, CANVAS_WIDTH, COLORS } from "./constants.js";
+import { createElement } from "../common/utils.js";
+import { CANVAS_HEIGHT, CANVAS_WIDTH, COLORS } from "../common/constants.js";
 
 export default class Canvas {
   #canvas;
@@ -18,6 +18,7 @@ export default class Canvas {
     const context = this.#canvas.getContext("2d");
     context.strokeStyle = COLORS[colorIndex];
     context.lineWidth = brushWidth;
+    context.lineCap = 'round';
 
     this.#canvas.onmousemove = (evt) => {
       if (evt.buttons === 1) {

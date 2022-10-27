@@ -1,4 +1,4 @@
-import App from "./src/App.js";
+import App from "./src/components/App.js";
 
 import "./index.css";
 
