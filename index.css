@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #ccc;
+    padding: 10px;
+}
+.canvas {
+    display: block;
+    margin: 0 auto;
+    background-color: #fff;
+}
+.control-panel{
+    display: flex;
+    width: 720px;
+    height: 60px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto;
+}
+.tool-panel {
+    display: flex;
+    width: 120px;
+    flex-direction: column;
+}
+.tool-title {
+    display: flex;
+    gap: 10px;
+}
+.color-panel {
+    display: flex;
+    gap: 5px;
+}
+
+.color-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+}
+.color-button__selected {
+    border: blue solid 2px;
+}
