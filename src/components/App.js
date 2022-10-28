@@ -15,10 +15,8 @@ export default class App {
     this.#colorIndex = INITIAL_INDEX_COLOR;
     this.#brushSize = INITIAL_BRUSH_WIDTH;
     this.#controlPanel = new ControlPanel(
-      this.#colorIndex,
       this.#changeColor,
-      this.#brushSize,
-      this.#changeBrushSize,
+      this.#changeBrushWidth,
       this.#clearCanvas
     );
     this.#canvas = new Canvas();
@@ -30,7 +28,7 @@ export default class App {
     this.#drawLine();
   };
 
-  #changeBrushSize = (size) => {
+  #changeBrushWidth = (size) => {
     this.#brushSize = size;
     this.#drawLine();
   };

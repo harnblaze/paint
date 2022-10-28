@@ -1,5 +1,6 @@
 import { createElement } from "../common/utils.js";
 import {
+  INITIAL_BRUSH_WIDTH,
   MAX_BRUSH_WIDTH,
   MIN_BRUSH_WIDTH,
   STEP_BRUSH_WIDTH,
@@ -12,8 +13,8 @@ export default class Tools {
   #label;
   #changeBrushWidth;
   #title;
-  constructor(parentNode, brushWidth, changeBrushWidth) {
-    this.#brushWidth = brushWidth;
+  constructor(parentNode, changeBrushWidth) {
+    this.#brushWidth = INITIAL_BRUSH_WIDTH;
     this.#changeBrushWidth = changeBrushWidth;
     this.#label = this.#createLabel();
     this.#title = this.#createTitle();
@@ -46,6 +47,7 @@ export default class Tools {
     label.name = "tool";
     return label;
   };
+
   #createTitle = () => {
     const title = createElement("div", "tool-title");
     const text = createElement("div", "tool-text", "Толщина кисти");
