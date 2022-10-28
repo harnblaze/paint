@@ -5,22 +5,29 @@
 }
 
 body{
-    background-color: #ccc;
+    background-color: #cccccc;
     padding: 10px;
 }
 .canvas {
     display: block;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: #ffffff;
 }
 .control-panel{
     display: flex;
     width: 720px;
     height: 60px;
-    justify-content: space-around;
     align-items: center;
     gap: 10px;
     margin: 0 auto;
+
+}
+.current-color {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
 }
 .tool-panel {
     display: flex;
@@ -34,13 +41,16 @@ body{
 .color-panel {
     display: flex;
     gap: 5px;
+    align-items: center;
+    flex-grow: 1;
 }
 
-.color-button {
+.color-button,
+.current-color__color {
     width: 30px;
     height: 30px;
     border-radius: 5px;
 }
-.color-button__selected {
-    border: blue solid 2px;
-}
+
+
+

@@ -7,33 +7,42 @@ export default class Colors {
   #changeColor;
   #colors;
   #colorButtons;
+  #currentColor;
   constructor(parentNode, initialIndex, changeColor) {
     this.#colors = COLORS;
     this.#colorIndex = initialIndex;
-    this.#panel = createElement("div", "color-panel", "Цвет");
+    this.#panel = createElement("div", "color-panel");
     this.#changeColor = changeColor;
-    this.#colorButtons = [];
-    this.#render();
+    this.#currentColor = this.#createCurrentColor();
+    this.#colorButtons = this.#createColorButtons();
     parentNode.append(this.#panel);
   }
   #buttonClickHandler = (i) => {
+    this.#panel.innerHTML = "";
     this.#changeColor(i);
     this.#colorIndex = i;
-    this.#render();
+    this.#currentColor = this.#createCurrentColor();
+    this.#colorButtons = this.#createColorButtons();
   };
 
-  #render = () => {
-    console.log(this.#colorIndex);
-    this.#panel.innerHTML = "Цвет";
-    this.#colorButtons = this.#colors.map((color, i) => {
-      const style = `color-button ${
-        i === this.#colorIndex ? "color-button__selected" : ""
-      }`;
-      const button = createElement("button", style);
+  #createColorButtons = () => {
+    const colorButtons = this.#colors.map((color, i) => {
+      const button = createElement("button", "color-button");
       button.style.backgroundColor = color;
       button.onclick = () => this.#buttonClickHandler(i);
       return button;
     });
-    this.#panel.append(...this.#colorButtons);
+    this.#panel.append(...colorButtons);
+    return colorButtons;
+  };
+
+  #createCurrentColor = () => {
+    const currentColor = createElement("div", "current-color");
+    const title = createElement("div", "current-color__title", "Текущий цвет");
+    const color = createElement("div", "current-color__color");
+    color.style.backgroundColor = this.#colors[this.#colorIndex];
+    currentColor.append(title, color);
+    this.#panel.append(currentColor);
+    return currentColor;
   };
 }

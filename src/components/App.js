@@ -21,7 +21,7 @@ export default class App {
       this.#changeBrushSize
     );
     this.#canvas = new Canvas();
-    this.#canvas.drawLine(this.#colorIndex, this.#brushSize);
+    this.#drawLine();
   }
 
   #changeColor = (index) => {
@@ -34,7 +34,6 @@ export default class App {
     this.#drawLine();
   };
   #drawLine = () => {
-    console.log(this.#colorIndex);
     this.#canvas.drawLine(this.#colorIndex, this.#brushSize);
   };
 }
