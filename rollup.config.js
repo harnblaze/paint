@@ -1,6 +1,7 @@
 import styles from "rollup-plugin-styles";
 import { babel } from "@rollup/plugin-babel";
 import serve from "rollup-plugin-serve";
+import html from "@rollup/plugin-html";
 
 export default {
   input: "./index.js",
@@ -18,5 +19,6 @@ export default {
       presets: ["@babel/env"],
     }),
     serve({ open: true }),
+    html(),
   ],
 };
