@@ -1,21 +1,32 @@
 {
-  "name": "paint",
+  "name": "my-webpack-project",
   "version": "1.0.0",
-  "description": "",
+  "description": "My webpack project",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "build": "rollup -c",
-    "start": "rollup -c -w"
+    "build": "webpack --mode=production --node-env=production",
+    "start": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch",
+    "serve": "webpack serve"
   },
   "keywords": [],
   "author": "Dmitriy Emelyanov",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.19.6",
     "@babel/preset-env": "^7.19.4",
-    "@rollup/plugin-babel": "^6.0.2",
-    "@rollup/plugin-html": "^1.0.1",
-    "rollup-plugin-serve": "^2.0.1",
-    "rollup-plugin-styles": "^4.0.0"
+    "@webpack-cli/generators": "^2.5.0",
+    "autoprefixer": "^10.4.12",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "postcss": "^8.4.18",
+    "postcss-loader": "^7.0.1",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1"
   }
 }
