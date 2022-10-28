@@ -48,4 +48,7 @@ export default class Canvas {
       }
     };
   };
+  clearCanvas = () => {
+    this.#context.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+  };
 }

@@ -8,20 +8,22 @@ body{
     background-color: #cccccc;
     padding: 10px;
 }
+
 .canvas {
     display: block;
     margin: 0 auto;
     background-color: #ffffff;
 }
+
 .control-panel{
     display: flex;
     width: 720px;
-    height: 60px;
+    height: 100px;
     align-items: center;
     gap: 10px;
     margin: 0 auto;
-
 }
+
 .current-color {
     display: flex;
     flex-direction: column;
@@ -37,20 +39,51 @@ body{
 .tool-title {
     display: flex;
     gap: 10px;
+    align-items: center;
 }
+
 .color-panel {
     display: flex;
     gap: 5px;
     align-items: center;
     flex-grow: 1;
+    flex-wrap: wrap;
 }
-
 .color-button,
 .current-color__color {
     width: 30px;
     height: 30px;
+}
+
+.clear-button {
+    padding: 10px;
+}
+
+.color-button,
+.current-color__color,
+.clear-button {
+    border: none;
     border-radius: 5px;
+    box-shadow: 0 0 3px -1px rgb(0 0 0 / 30%);
+    transition: all .3s;
+    cursor: pointer;
+    outline: none;
+    transform: translateY(0px);
 }
 
 
 
+.color-button:hover,
+.clear-button:hover {
+    box-shadow: 1px 2px 3px 1px rgba(0,0,0,.3);
+    transition: all .3s;
+    transform: translateY(0px);
+}
+
+.color-button:active,
+.clear-button:active {
+    box-shadow: 1px 2px 3px 1px rgba(0,0,0,.3);
+    background-color: #eee;
+    transform: translateY(2px);
+    transition: all .3s
+}
