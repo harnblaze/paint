@@ -48,7 +48,18 @@ export default class Canvas {
       }
     };
   };
+
   clearCanvas = () => {
     this.#context.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+  };
+
+  saveImage = () => {
+    const imageData = this.#canvas.toDataURL("image/jpeg", 1.0);
+    const image = new Image();
+    image.src = imageData;
+    const link = document.createElement("a");
+    link.setAttribute("href", image.src);
+    link.setAttribute("download", "canvasImage");
+    link.click();
   };
 }

@@ -17,7 +17,8 @@ export default class App {
     this.#controlPanel = new ControlPanel(
       this.#changeColor,
       this.#changeBrushWidth,
-      this.#clearCanvas
+      this.#clearCanvas,
+      this.#saveImageCanvas
     );
     this.#canvas = new Canvas();
     this.#drawLine();
@@ -32,10 +33,16 @@ export default class App {
     this.#brushSize = size;
     this.#drawLine();
   };
+
   #drawLine = () => {
     this.#canvas.drawLine(this.#colorIndex, this.#brushSize);
   };
+
   #clearCanvas = () => {
     this.#canvas.clearCanvas();
+  };
+
+  #saveImageCanvas = () => {
+    this.#canvas.saveImage();
   };
 }
