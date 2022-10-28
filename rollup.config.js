@@ -7,7 +7,7 @@ export default {
   input: "./index.js",
   output: {
     file: "build/bundle.js",
-    format: "cjs",
+    format: "es",
   },
   watch: {
     exclude: ["node_modules/**", "build/**"],
