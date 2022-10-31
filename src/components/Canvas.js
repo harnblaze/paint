@@ -119,6 +119,34 @@ export default class Canvas {
     };
   };
 
+  drawEllipse = (colorIndex, brushWidth) => {
+    this.#tempContext.strokeStyle = COLORS[colorIndex];
+    this.#tempContext.lineWidth = brushWidth;
+
+    this.#tempCanvas.onmousemove = (evt) => {
+      if (evt.buttons === 1 && this.isCLickOnCanvas) {
+        this.#startDraw();
+        const x = Math.min(evt.offsetX, this.#mouseX);
+        const y = Math.min(evt.offsetY, this.#mouseY);
+        const radiusX = Math.abs(evt.offsetX - this.#mouseX) / 2;
+        const radiusY = Math.abs(evt.offsetY - this.#mouseY) / 2;
+        this.#tempContext.beginPath();
+        this.#tempContext.ellipse(
+            x + radiusX,
+            y + radiusY,
+            radiusX,
+            radiusY,
+            Math.PI,
+            0,
+            2 * Math.PI,
+            false
+        );
+        this.#tempContext.stroke();
+        this.#tempContext.closePath();
+      }
+    };
+  }
+
   clearCanvas = () => {
     this.#context.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     this.#context.fillStyle = "rgb(255,255,255)";
