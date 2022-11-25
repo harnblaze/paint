@@ -1,0 +1,12 @@
+.widthControl {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.title {
+    display: flex;
+    gap: 5px;
+    font-weight: bold;
+}

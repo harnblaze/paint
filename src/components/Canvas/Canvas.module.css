@@ -1,0 +1,7 @@
+.canvas {
+    background-color: #ffffff;
+}
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
