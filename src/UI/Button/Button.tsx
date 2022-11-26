@@ -3,7 +3,6 @@ import styles from "./Button.module.css";
 
 interface IButtonProps {
   children?: any;
-  variant?: string;
   bgColor?: string;
   onClick?: () => void;
   onContextMenu?: () => void;
@@ -11,7 +10,6 @@ interface IButtonProps {
 
 const Button: FC<IButtonProps> = ({
   children,
-  variant = "clickable",
   bgColor,
   onClick,
   onContextMenu,
@@ -23,7 +21,7 @@ const Button: FC<IButtonProps> = ({
 
   return (
     <button
-      className={[styles.button, styles[variant]].join(" ")}
+      className={styles.button}
       style={{ backgroundColor: bgColor }}
       onClick={() => onClick && onClick()}
       onContextMenu={(event) => handleContextMenu(event)}

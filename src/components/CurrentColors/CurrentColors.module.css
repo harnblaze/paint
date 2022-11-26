@@ -34,4 +34,20 @@
     border-radius: 5px;
     box-shadow: 0 0 3px -1px rgb(0 0 0 / 30%);
     outline: none;
+    transition: all .3s;
+    cursor: pointer;
+    transform: translateY(0px);
+}
+
+.label:hover {
+    box-shadow: 1px 2px 3px 1px rgba(0,0,0,.3);
+    transition: all .3s;
+    transform: translateY(0px);
+}
+
+.label:active {
+    box-shadow: 1px 2px 3px 1px rgba(0,0,0,.3);
+    background-color: #eee;
+    transform: translateY(2px);
+    transition: all .3s;
 }
