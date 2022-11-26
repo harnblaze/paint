@@ -9,15 +9,17 @@ import {
 
 const CurrentColors = () => {
   const { primary, secondary } = useTypedSelector((state) => state.color);
+  const dispatch = useDispatch();
+
   const [primaryValue, setPrimaryValue] = useState<string>(primary);
   const [secondaryValue, setSecondaryValue] = useState<string>(secondary);
-  const dispatch = useDispatch();
 
   const changePrimary = (e: React.ChangeEvent<HTMLInputElement>) => {
     const color = e.target.value;
     dispatch(setPrimaryColor(color));
     setPrimaryValue(color);
   };
+
   const changeSecondary = (e: React.ChangeEvent<HTMLInputElement>) => {
     const color = e.target.value;
     dispatch(setSecondaryColor(color));

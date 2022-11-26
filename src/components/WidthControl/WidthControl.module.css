@@ -9,4 +9,5 @@
     display: flex;
     gap: 5px;
     font-weight: bold;
+    min-width: 160px;
 }
