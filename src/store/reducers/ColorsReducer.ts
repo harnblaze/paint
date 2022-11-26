@@ -5,8 +5,8 @@ import {
 } from "../../types/colorTypes";
 
 const initialState: IColorsState = {
-  primary: "black",
-  secondary: "white",
+  primary: "#000000",
+  secondary: "#ffffff",
 };
 
 export const colorReducer = (

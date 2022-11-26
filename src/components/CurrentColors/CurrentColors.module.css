@@ -12,3 +12,26 @@
     flex-wrap: wrap;
     gap: 5px
 }
+
+.input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.label {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 3px -1px rgb(0 0 0 / 30%);
+    outline: none;
+}

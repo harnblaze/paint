@@ -15,8 +15,8 @@ const tools = [
 const Tools = () => {
   return (
     <div className={styles.tools}>
-      {tools.map((tool) => (
-        <Button>{tool}</Button>
+      {tools.map((tool, id) => (
+        <Button key={id}>{tool}</Button>
       ))}
     </div>
   );
