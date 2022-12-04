@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./CurrentColors.module.css";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { useDispatch } from "react-redux";
@@ -11,19 +11,14 @@ const CurrentColors = () => {
   const { primary, secondary } = useTypedSelector((state) => state.color);
   const dispatch = useDispatch();
 
-  const [primaryValue, setPrimaryValue] = useState<string>(primary);
-  const [secondaryValue, setSecondaryValue] = useState<string>(secondary);
-
   const changePrimary = (e: React.ChangeEvent<HTMLInputElement>) => {
     const color = e.target.value;
     dispatch(setPrimaryColor(color));
-    setPrimaryValue(color);
   };
 
   const changeSecondary = (e: React.ChangeEvent<HTMLInputElement>) => {
     const color = e.target.value;
     dispatch(setSecondaryColor(color));
-    setSecondaryValue(color);
   };
 
   return (
@@ -34,7 +29,7 @@ const CurrentColors = () => {
           <input
             className={styles.input}
             type="color"
-            value={primaryValue}
+            value={primary}
             onChange={changePrimary}
           />
         </label>
@@ -43,7 +38,7 @@ const CurrentColors = () => {
           <input
             className={styles.input}
             type="color"
-            value={secondaryValue}
+            value={secondary}
             onChange={changeSecondary}
           />
         </label>

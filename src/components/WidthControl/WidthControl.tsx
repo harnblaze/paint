@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./WidthControl.module.css";
 import {
   MAX_BRUSH_WIDTH,
@@ -13,11 +13,9 @@ const WidthControl = () => {
   const { lineWidth } = useTypedSelector((state) => state.lineWidth);
   const dispatch = useDispatch();
 
-  const [width, setWidth] = useState(lineWidth);
-
   const handleChangeWidth = (event: React.ChangeEvent<HTMLInputElement>) => {
     const width = Number(event.target.value);
-    setWidth(width);
+
     dispatch(setLineWidth(width));
   };
 
@@ -34,7 +32,7 @@ const WidthControl = () => {
         min={MIN_BRUSH_WIDTH}
         max={MAX_BRUSH_WIDTH}
         step={STEP_BRUSH_WIDTH}
-        value={width}
+        value={lineWidth}
         onChange={handleChangeWidth}
       />
     </div>
