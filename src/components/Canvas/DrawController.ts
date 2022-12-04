@@ -27,8 +27,10 @@ class DrawController {
     this.context = canvas.getContext("2d") as CanvasRenderingContext2D;
   }
 
-  private clearCanvas = () => {
+  clearCanvas = () => {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    this.context.fillStyle = "rgb(255,255,255)";
+    this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
   };
 
   private startDraw = (x: number, y: number) => {
@@ -52,7 +54,7 @@ class DrawController {
     const img = new Image();
     img.src = this.saved;
     img.onload = () => {
-      this.clearCanvas();
+      this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
       this.context.drawImage(img, 0, 0, this.canvas.width, this.canvas.height);
       this.context.beginPath();
       afterRedrawCallback();
@@ -166,5 +168,15 @@ class DrawController {
         this.canvas.onmousedown = null;
     }
   }
+
+  downloadImage = () => {
+    const dataUrl = this.canvas.toDataURL();
+    const a = document.createElement("a");
+    a.href = dataUrl;
+    a.download = "paintImage.jpg";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
 }
 export default DrawController;

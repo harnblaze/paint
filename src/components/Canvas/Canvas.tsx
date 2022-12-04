@@ -3,12 +3,15 @@ import { CANVAS_HEIGHT, CANVAS_WIDTH } from "../../utils/constants";
 import styles from "./Canvas.module.css";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import DrawController from "./DrawController";
+import { useDispatch } from "react-redux";
+import { changeController } from "../../store/actionCreators/drawControllerActionCreators";
 
 const Canvas = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const { primary, secondary } = useTypedSelector((state) => state.color);
   const { lineWidth } = useTypedSelector((state) => state.lineWidth);
   const { tool } = useTypedSelector((state) => state.tool);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const canvas = canvasRef.current as HTMLCanvasElement;
@@ -19,6 +22,7 @@ const Canvas = () => {
       secondary,
       lineWidth
     );
+    dispatch(changeController(canvasController));
     canvasController.draw();
   });
 
