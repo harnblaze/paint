@@ -1,20 +1,34 @@
 class DrawController {
-  private readonly canvas: HTMLCanvasElement;
-  private readonly tool: string;
-  private readonly primaryColor: string;
-  private readonly secondaryColor: string;
-  private readonly lineWidth: number;
-  private mouseX: number;
-  private mouseY: number;
-  private readonly context: CanvasRenderingContext2D;
-  private saved: string;
+  private readonly canvas;
+  private readonly tool;
+  private readonly primaryColor;
+  private readonly secondaryColor;
+  private readonly lineWidth;
+  private mouseX;
+  private mouseY;
+  private readonly context;
+  private saved;
+  private readonly pushToUndoList;
+  private readonly popToUndoList;
+  private readonly undoList;
+  private readonly pushToRedoList;
+  private readonly popToRedoList;
+  private readonly redoList;
+  private readonly clearRedoList;
 
   constructor(
     canvas: HTMLCanvasElement,
     tool: string,
     primary: string,
     secondary: string,
-    lineWidth: number
+    lineWidth: number,
+    pushToUndoList: (data: string) => void,
+    popToUndoList: () => void,
+    undoList: string[],
+    pushToRedoList: (data: string) => void,
+    popToRedoList: () => void,
+    redoList: string[],
+    clearRedoList: () => void
   ) {
     this.canvas = canvas;
     this.tool = tool;
@@ -24,6 +38,13 @@ class DrawController {
     this.primaryColor = primary;
     this.secondaryColor = secondary;
     this.lineWidth = lineWidth;
+    this.pushToUndoList = pushToUndoList;
+    this.popToUndoList = popToUndoList;
+    this.undoList = undoList;
+    this.pushToRedoList = pushToRedoList;
+    this.popToRedoList = popToRedoList;
+    this.redoList = redoList;
+    this.clearRedoList = clearRedoList;
     this.context = canvas.getContext("2d") as CanvasRenderingContext2D;
   }
 
@@ -40,11 +61,14 @@ class DrawController {
     this.context.lineWidth = this.lineWidth;
     this.mouseX = x;
     this.mouseY = y;
+    this.clearRedoList();
+    this.pushToUndoList(this.canvas.toDataURL());
     this.saved = this.canvas.toDataURL();
   };
 
   private endDraw = () => {
     this.context.closePath();
+
     this.canvas.onmousemove = null;
     this.canvas.onmouseup = null;
     this.canvas.onmouseleave = null;
@@ -177,6 +201,26 @@ class DrawController {
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
+  };
+
+  undo = () => {
+    if (this.undoList.length > 0) {
+      this.pushToRedoList(this.canvas.toDataURL());
+      this.saved = this.undoList.at(-1) as string;
+      this.redrawCanvas(() => {
+        this.popToUndoList();
+      });
+    }
+  };
+
+  redo = () => {
+    if (this.redoList.length > 0) {
+      this.pushToUndoList(this.canvas.toDataURL());
+      this.saved = this.redoList.at(-1) as string;
+      this.redrawCanvas(() => {
+        this.popToRedoList();
+      });
+    }
   };
 }
 export default DrawController;
