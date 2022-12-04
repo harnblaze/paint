@@ -4,6 +4,7 @@ import styles from "./Button.module.css";
 interface IButtonProps {
   children?: any;
   bgColor?: string;
+  active?: boolean;
   onClick?: () => void;
   onContextMenu?: () => void;
 }
@@ -11,6 +12,7 @@ interface IButtonProps {
 const Button: FC<IButtonProps> = ({
   children,
   bgColor,
+  active,
   onClick,
   onContextMenu,
 }) => {
@@ -18,10 +20,12 @@ const Button: FC<IButtonProps> = ({
     e.preventDefault();
     onContextMenu && onContextMenu();
   };
+  const buttonClasses = () =>
+    [styles.button, active ? styles.active : ""].join(" ");
 
   return (
     <button
-      className={styles.button}
+      className={buttonClasses()}
       style={{ backgroundColor: bgColor }}
       onClick={() => onClick && onClick()}
       onContextMenu={(event) => handleContextMenu(event)}
