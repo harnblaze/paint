@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./Tools.module.css";
 import Button from "../../UI/Button/Button";
-import { FaPaintBrush, FaRegCircle } from "react-icons/fa";
-import { BiRectangle } from "react-icons/bi";
+import { FaCircle, FaPaintBrush, FaRegCircle } from "react-icons/fa";
+import { BsFillSquareFill, BsSquare } from "react-icons/bs";
 import { AiOutlineLine } from "react-icons/ai";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { useDispatch } from "react-redux";
@@ -14,16 +14,24 @@ const tools = [
     icon: <FaPaintBrush />,
   },
   {
+    name: "line",
+    icon: <AiOutlineLine />,
+  },
+  {
     name: "rect",
-    icon: <BiRectangle />,
+    icon: <BsSquare />,
+  },
+  {
+    name: "rectFill",
+    icon: <BsFillSquareFill />,
   },
   {
     name: "ellipse",
     icon: <FaRegCircle />,
   },
   {
-    name: "line",
-    icon: <AiOutlineLine />,
+    name: "ellipseFill",
+    icon: <FaCircle />,
   },
 ];
 

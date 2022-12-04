@@ -20,7 +20,7 @@ const Button: FC<IButtonProps> = ({
     e.preventDefault();
     onContextMenu && onContextMenu();
   };
-  const buttonClasses = () =>
+  const buttonClasses = (): string =>
     [styles.button, active ? styles.active : ""].join(" ");
 
   return (
