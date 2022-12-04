@@ -23,27 +23,27 @@
 }
 
 .button:active {
-    box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
-    -4px -4px 6px 0 rgba(116, 125, 136, .5),
-    inset -4px -4px 6px 0 rgba(255,255,255,.2),
-    inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+    box-shadow:  2px 2px 3px 0 rgba(255,255,255,.5),
+    -2px -2px 3px 0 rgba(116, 125, 136, .5),
+    inset -2px -2px 3px 0 rgba(255,255,255,.2),
+    inset 2px 2px 3px 0 rgba(0, 0, 0, .4);
     background-color: #eee;
     transform: translateY(2px);
     transition: all .3s;
 }
 
 .active {
-    box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
-    -4px -4px 6px 0 rgba(116, 125, 136, .5),
-    inset -4px -4px 6px 0 rgba(255,255,255,.2),
-    inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+    box-shadow:  2px 2px 3px 0 rgba(255,255,255,.5),
+    -2px -2px 3px 0 rgba(116, 125, 136, .5),
+    inset -2px -2px 3px 0 rgba(255,255,255,.2),
+    inset 2px 2px 3px 0 rgba(0, 0, 0, .4);
     background-color: #eee;
 }
 
 .active:hover {
-    box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
-    -4px -4px 6px 0 rgba(116, 125, 136, .5),
-    inset -4px -4px 6px 0 rgba(255,255,255,.2),
-    inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+    box-shadow:  2px 2px 3px 0 rgba(255,255,255,.5),
+    -2px -2px 3px 0 rgba(116, 125, 136, .5),
+    inset -2px -2px 3px 0 rgba(255,255,255,.2),
+    inset 2px 2px 3px 0 rgba(0, 0, 0, .4);
     background-color: #eee;
 }
