@@ -66,14 +66,14 @@ class DrawController {
     this.saved = this.canvas.toDataURL();
   };
 
-  private endDraw = () => {
+  private endDraw = (evt: MouseEvent) => {
+    evt.preventDefault()
     this.context.closePath();
-
     this.canvas.onmousemove = null;
+
     this.canvas.onmouseup = null;
     this.canvas.onmouseleave = null;
   };
-
   private redrawCanvas = (afterRedrawCallback: () => void) => {
     const img = new Image();
     img.src = this.saved;
@@ -87,6 +87,9 @@ class DrawController {
 
   private drawBrush = () => {
     this.canvas.onmousedown = (evt) => {
+      console.log(evt)
+
+      evt.preventDefault();
       this.startDraw(evt.offsetX, evt.offsetY);
       this.context.beginPath();
 
@@ -100,6 +103,7 @@ class DrawController {
     };
   };
 
+
   private drawRect = (fill = false) => {
     this.canvas.onmousedown = (evt) => {
       this.startDraw(evt.offsetX, evt.offsetY);
@@ -111,8 +115,8 @@ class DrawController {
           const width = Math.abs(evt.offsetX - this.mouseX);
           const height = Math.abs(evt.offsetY - this.mouseY);
           this.context.rect(x, y, width, height);
-          this.context.stroke();
           fill && this.context.fill();
+          this.context.stroke();
         });
       };
 
@@ -142,8 +146,8 @@ class DrawController {
             2 * Math.PI,
             false
           );
-          this.context.stroke();
           fill && this.context.fill();
+          this.context.stroke();
         });
       };
 

@@ -1,16 +1,24 @@
 .currentColor {
     height: 100%;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
+    gap: 15px;
+}
+
+.typeColor{
+    height: 100%;
+    display: flex;
+    max-width: 80px;
+    text-align: center;
+    flex-direction: column;
     justify-content: space-evenly;
 }
 
-
 .colors {
     display: flex;
-    flex-wrap: wrap;
-    gap: 5px
+    gap: 5px;
+    justify-content: space-evenly;
 }
 
 .input {

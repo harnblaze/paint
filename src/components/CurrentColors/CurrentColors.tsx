@@ -23,25 +23,31 @@ const CurrentColors = () => {
 
   return (
     <div className={styles.currentColor}>
-      <h4>Текущий цвет</h4>
-      <div className={styles.colors}>
-        <label className={styles.label} style={{ backgroundColor: primary }}>
-          <input
-            className={styles.input}
-            type="color"
-            value={primary}
-            onChange={changePrimary}
-          />
-        </label>
-
-        <label className={styles.label} style={{ backgroundColor: secondary }}>
-          <input
-            className={styles.input}
-            type="color"
-            value={secondary}
-            onChange={changeSecondary}
-          />
-        </label>
+      <div className={styles.typeColor}>
+        <h4>Основной цвет</h4>
+        <div className={styles.colors}>
+          <label className={styles.label} style={{ backgroundColor: primary }}>
+            <input
+                className={styles.input}
+                type="color"
+                value={primary}
+                onChange={changePrimary}
+            />
+          </label>
+        </div>
+      </div>
+      <div className={styles.typeColor}>
+      <h4>Второй цвет</h4>
+        <div className={styles.colors}>
+          <label className={styles.label} style={{ backgroundColor: secondary }}>
+            <input
+                className={styles.input}
+                type="color"
+                value={secondary}
+                onChange={changeSecondary}
+            />
+          </label>
+        </div>
       </div>
     </div>
   );
