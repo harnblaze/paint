@@ -1,0 +1,49 @@
+.button {
+    min-width: 30px;
+    min-height: 30px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 3px -1px rgb(0 0 0 / 30%);
+    outline: none;
+    font-weight: bold;
+    transition: all .3s;
+    cursor: pointer;
+    transform: translateY(0px);
+}
+
+
+
+
+
+.button:hover {
+    box-shadow: 1px 2px 3px 1px rgba(0,0,0,.3);
+    transition: all .3s;
+    transform: translateY(0px);
+}
+
+.button:active {
+    box-shadow:  2px 2px 3px 0 rgba(255,255,255,.5),
+    -2px -2px 3px 0 rgba(116, 125, 136, .5),
+    inset -2px -2px 3px 0 rgba(255,255,255,.2),
+    inset 2px 2px 3px 0 rgba(0, 0, 0, .4);
+    background-color: #eee;
+    transform: translateY(2px);
+    transition: all .3s;
+}
+
+.active {
+    box-shadow:  2px 2px 3px 0 rgba(255,255,255,.5),
+    -2px -2px 3px 0 rgba(116, 125, 136, .5),
+    inset -2px -2px 3px 0 rgba(255,255,255,.2),
+    inset 2px 2px 3px 0 rgba(0, 0, 0, .4);
+    background-color: #eee;
+}
+
+.active:hover {
+    box-shadow:  2px 2px 3px 0 rgba(255,255,255,.5),
+    -2px -2px 3px 0 rgba(116, 125, 136, .5),
+    inset -2px -2px 3px 0 rgba(255,255,255,.2),
+    inset 2px 2px 3px 0 rgba(0, 0, 0, .4);
+    background-color: #eee;
+}

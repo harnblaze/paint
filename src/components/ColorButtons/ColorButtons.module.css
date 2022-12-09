@@ -1,0 +1,8 @@
+.buttons {
+    display: flex;
+    max-width: 300px;
+    gap: 5px;
+    align-items: center;
+    flex-grow: 1;
+    flex-wrap: wrap;
+}
